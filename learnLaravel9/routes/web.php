@@ -18,3 +18,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'home']);
 Route::get('/register', [AuthController::class, 'register']);
 Route::post('/welcome', [AuthController::class, 'welcome']);
+
+Route::get('/dashboard', function() {
+    return view('pages.dashboard');
+});
+Route::get('/table', function() {
+    return view('pages.table');
+});
+Route::get('/data-tables', function() {
+    return view('pages.datatable');
+});
