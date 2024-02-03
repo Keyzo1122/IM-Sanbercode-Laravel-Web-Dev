@@ -40,8 +40,8 @@
                     </div>
                 @enderror
             </div>
-            <a href="/cast">
-                <button type="button" class="btn btn-primary btn-sm">Kembali</button>
+            <a href="/cast" style="text-decoration: none;">
+                <button type="button" class="btn btn-primary btn-sm">Back</button>
             </a>
             <button type="submit" class="btn btn-warning btn-sm">Edit</button>
         </form>

@@ -10,7 +10,7 @@ Show
     <h4>Umur Cast Adalah {{ $cast->age }}</h4>
     <p>{{ $cast->bio }}</p>
 
-    <a href="/cast">
-        <button type="button" class="btn btn-primary btn-sm">Kembali</button>
+    <a href="/cast" style="text-decoration: none;">
+        <button type="button" class="btn btn-primary btn-sm">Back</button>
     </a>
 @endsection
