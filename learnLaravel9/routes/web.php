@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CastController;
+use App\Http\Controllers\FilmController;
 use App\Http\Controllers\GenreController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,3 +34,4 @@ Route::get('/data-tables', function() {
 
 Route::resource('cast', CastController::class);
 Route::resource('genre', GenreController::class);
+Route::resource('film', FilmController::class);

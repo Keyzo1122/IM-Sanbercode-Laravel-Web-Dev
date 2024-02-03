@@ -11,7 +11,7 @@ class CastController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     *
      */
     public function index()
     {
@@ -32,8 +32,6 @@ class CastController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
@@ -65,8 +63,6 @@ class CastController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Cast  $cast
-     * @return \Illuminate\Http\Response
      */
     public function edit( $id)
     {
