@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cast;
 use Illuminate\Http\Request;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class CastController extends Controller
 {
@@ -68,7 +68,7 @@ class CastController extends Controller
      * @param  \App\Models\Cast  $cast
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit( $id)
     {
         $cast = DB::table('casts')->where('id', $id)->first();
         return view('cast.edit', compact('cast'));
@@ -81,7 +81,7 @@ class CastController extends Controller
      * @param  \App\Models\Cast  $cast
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,  $id)
+    public function update(Request $request,   $id)
     {
         $request->validate([
             'name' => 'required|unique:casts',
@@ -102,7 +102,7 @@ class CastController extends Controller
      * @param  \App\Models\Cast  $cast
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy( $id)
     {
         $query = DB::table('casts')->where('id', $id)->delete();
         return redirect('/cast');

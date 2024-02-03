@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CastController;
+use App\Http\Controllers\GenreController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,10 +31,5 @@ Route::get('/data-tables', function() {
     return view('pages.datatable');
 });
 
-Route::get('/cast', [CastController::class, 'index']);
-Route::get('/cast/create', [CastController::class, 'create']);
-Route::post('/cast', [CastController::class, 'store']);
-Route::get('/cast/{cast_id}', [CastController::class, 'show']);
-Route::get('/cast/{cast_id}/edit', [CastController::class, 'edit']);
-Route::put('/cast/{cast_id}', [CastController::class, 'update']);
-Route::delete('/cast/{cast_id}', [CastController::class, 'destroy']);
+Route::resource('cast', CastController::class);
+Route::resource('genre', GenreController::class);

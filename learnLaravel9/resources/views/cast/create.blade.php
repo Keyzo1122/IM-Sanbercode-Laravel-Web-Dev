@@ -38,7 +38,7 @@
             </div>
             <button type="submit" class="btn btn-primary btn-sm">Create</button>
             <a href="/cast" style="text-decoration: none;">
-                <button type="button" class="btn btn-primary btn-sm">Back</button>
+                <button type="button" class="btn btn-warning btn-sm">Back</button>
             </a>
         </form>
     </div>
