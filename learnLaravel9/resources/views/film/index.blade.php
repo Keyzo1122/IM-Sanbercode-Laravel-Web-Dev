@@ -5,7 +5,9 @@
 @endsection
 
 @section('content')
+    @auth
     <a href="/film/create" class="btn btn-primary btn-sm">Add New Film</a>
+    @endauth
     <br><br>
 
     <div class="row">
@@ -18,19 +20,20 @@
                         <p class="card-text">{{ Str::limit($item->summary, 100) }}</p>
                         <a href="/film/{{ $item->id }}" class="btn btn-primary d-flex justify-content-center">Read
                             More</a>
+                        @auth
                         <div class="row my-2">
                             <div class="col">
-                                <a href="/film/{{ $item->id }}/edit"
-                                    class="btn btn-warning d-flex justify-content-center">Edit</a>
+                                <a href="/film/{{ $item->id }}/edit" class="btn btn-warning btn-sm btn-block">Edit</a>
                             </div>
                             <div class="col">
                                 <form action="/film/{{ $item->id }}" method="POST" style="display: inline;">
                                     @csrf
                                     @method('DELETE')
-                                    <input type="submit" class="btn btn-danger btn-sm my-1" value="Delete">
+                                    <input type="submit" class="btn btn-danger btn-sm btn-block" value="Delete">
                                 </form>
                             </div>
                         </div>
+                        @endauth
                     </div>
                 </div>
             </div>

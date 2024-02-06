@@ -6,6 +6,7 @@ use App\Http\Controllers\CastController;
 use App\Http\Controllers\FilmController;
 use App\Http\Controllers\GenreController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,11 +19,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'home']);
-Route::get('/register', [AuthController::class, 'register']);
-Route::post('/welcome', [AuthController::class, 'welcome']);
+// Route::get('/', [HomeController::class, 'home']);
+// Route::get('/register', [AuthController::class, 'register']);
+// Route::post('/welcome', [AuthController::class, 'welcome']);
 
-Route::get('/dashboard', function() {
+// Route::group(['middleware' => ['auth']], function () {
+// });
+Route::get('/', function() {
     return view('pages.dashboard');
 });
 Route::get('/table', function() {
@@ -32,6 +35,9 @@ Route::get('/data-tables', function() {
     return view('pages.datatable');
 });
 
+
 Route::resource('cast', CastController::class);
 Route::resource('genre', GenreController::class);
 Route::resource('film', FilmController::class);
+
+Auth::routes();

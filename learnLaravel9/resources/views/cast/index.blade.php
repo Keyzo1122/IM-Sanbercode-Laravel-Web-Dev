@@ -5,7 +5,9 @@
 @endsection
 
 @section('content')
-    <a href="/cast/create" class="btn btn-primary btn-sm">Add New</a>
+@auth
+<a href="/cast/create" class="btn btn-primary btn-sm">Add New</a>
+@endauth
     <br><br>
     <table class="table">
         <thead class="thead-light">
@@ -25,13 +27,16 @@
                     <td>{{ $value->age }}</td>
                     <td>{{ $value->bio }}</td>
                     <td>
-                        <a href="/cast/{{ $value->id }}" class="btn btn-info btn-sm"  style="display: inline;">Show</a>
-                        <a href="/cast/{{ $value->id }}/edit" class="btn btn-warning btn-sm" style="display: inline;">Edit</a>
-                        <form action="/cast/{{ $value->id }}" method="POST" style="display: inline;">
-                            @csrf
-                            @method('DELETE')
-                            <input type="submit" class="btn btn-danger btn-sm my-1" value="Delete">
-                        </form>
+                        <a href="/cast/{{ $value->id }}" class="btn btn-info btn-sm" style="display: inline;">Show</a>
+                        @auth
+                            <a href="/cast/{{ $value->id }}/edit" class="btn btn-warning btn-sm"
+                                style="display: inline;">Edit</a>
+                            <form action="/cast/{{ $value->id }}" method="POST" style="display: inline;">
+                                @csrf
+                                @method('DELETE')
+                                <input type="submit" class="btn btn-danger btn-sm my-1" value="Delete">
+                            </form>
+                        @endauth
                     </td>
                 </tr>
             @empty

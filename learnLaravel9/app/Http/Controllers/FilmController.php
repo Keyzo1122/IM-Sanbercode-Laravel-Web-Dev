@@ -5,10 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Film;
 use App\Models\Genre;
 use Illuminate\Http\Request;
-use File;
+use Illuminate\Support\Facades\FILE;
+
 
 class FilmController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except('index', 'show');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -47,7 +53,7 @@ class FilmController extends Controller
             'genre_id' => 'required',
         ]);
 
-        $filename = time().'.'.$request->poster->extension();
+        $filename = time() . '.' . $request->poster->extension();
         $request->poster->move(public_path('image'), $filename);
 
         $film = new Film;
@@ -105,9 +111,9 @@ class FilmController extends Controller
         ]);
 
         $film = Film::find($id);
-        if ($request->has('poster')){
+        if ($request->has('poster')) {
             $path = 'image/';
-            File::delete($path. $film->poster);
+            File::delete($path . $film->poster);
 
             $filename = time() . '.' . $request->poster->extension();
             $request->poster->move(public_path('image'), $filename);
@@ -136,7 +142,7 @@ class FilmController extends Controller
         $film = Film::find($id);
 
         $path = 'image/';
-        File::delete($path. $film->poster);
+        File::delete($path . $film->poster);
 
         $film->delete();
         return redirect('/film');

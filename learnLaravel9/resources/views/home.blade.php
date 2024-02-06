@@ -29,7 +29,7 @@
         </ul>
     </div>
 
-    <a href="/dashboard" style="text-decoration: none; margin-left: 200px;">
+    <a href="/login" style="text-decoration: none; margin-left: 200px;">
         <button type="button" class="btn btn-primary btn-sm">Klik Disini Untuk Ke Arah Dashboard</button>
     </a>
 

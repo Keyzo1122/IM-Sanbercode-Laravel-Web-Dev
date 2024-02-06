@@ -5,7 +5,9 @@
 @endsection
 
 @section('content')
-    <a href="/genre/create" class="btn btn-primary btn-sm">Add New</a>
+@auth
+<a href="/genre/create" class="btn btn-primary btn-sm">Add New</a>
+@endauth
     <br><br>
     <table class="table">
         <thead class="thead-light">
@@ -22,12 +24,14 @@
                     <td>{{ $value->name }}</td>
                     <td>
                         <a href="/genre/{{ $value->id }}" class="btn btn-info btn-sm"  style="display: inline;">Show</a>
+                        @auth
                         <a href="/genre/{{ $value->id }}/edit" class="btn btn-warning btn-sm" style="display: inline;">Edit</a>
                         <form action="/genre/{{ $value->id }}" method="POST" style="display: inline;">
                             @csrf
                             @method('DELETE')
                             <input type="submit" class="btn btn-danger btn-sm my-1" value="Delete">
                         </form>
+                        @endauth
                     </td>
                 </tr>
             @empty

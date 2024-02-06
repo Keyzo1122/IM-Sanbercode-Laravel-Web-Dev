@@ -6,7 +6,12 @@
                 alt="User Image">
         </div>
         <div class="info">
-            <a href="#" class="d-block">Alexander Pierce</a>
+            @auth
+                <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+            @endauth
+            @guest
+                <a href="#" class="d-block">Guest</a>
+            @endguest
         </div>
     </div>
 
@@ -28,7 +33,7 @@
             <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
             <li class="nav-item">
-                <a href="/dashboard" class="nav-link">
+                <a href="/" class="nav-link">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     <p>
                         Dashboard
@@ -81,6 +86,27 @@
                         Film
                     </p>
                 </a>
+            </li>
+            <li class="nav-item">
+            @auth
+                    <a href="{{ route('logout') }}" class="nav-link bg-danger"
+                    onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
+                        <p>
+                            Log Out
+                        </p>
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                @endauth
+                @guest
+                    <a href="{{ route('login') }}" class="nav-link bg-info">
+                        <p>
+                            Log In
+                        </p>
+                    </a>
+                @endguest
             </li>
         </ul>
     </nav>
