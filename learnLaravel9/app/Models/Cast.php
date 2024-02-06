@@ -10,4 +10,9 @@ class Cast extends Model
     use HasFactory;
     protected $table = 'casts';
     protected $fillable = ['name', 'age', 'bio'];
+
+    // public function cast()
+    // {
+    //     return $this->hasMany(Role::class);
+    // }
 }
