@@ -11,8 +11,8 @@ class Cast extends Model
     protected $table = 'casts';
     protected $fillable = ['name', 'age', 'bio'];
 
-    // public function cast()
-    // {
-    //     return $this->hasMany(Role::class);
-    // }
+    public function role()
+    {
+        return $this->hasMany(Role::class);
+    }
 }

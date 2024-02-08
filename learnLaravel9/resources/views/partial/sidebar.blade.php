@@ -88,6 +88,22 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a href="/role" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>
+                        Role
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/critic" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>
+                        Critic
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
             @auth
                     <a href="{{ route('logout') }}" class="nav-link bg-danger"
                     onclick="event.preventDefault();

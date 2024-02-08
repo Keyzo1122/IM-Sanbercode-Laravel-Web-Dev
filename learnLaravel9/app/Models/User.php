@@ -46,4 +46,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(User::class);
     }
+
+    public function critic()
+    {
+        return $this->hasMany(Critic::class);
+    }
 }

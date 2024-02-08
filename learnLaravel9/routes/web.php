@@ -3,8 +3,10 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CastController;
+use App\Http\Controllers\CriticController;
 use App\Http\Controllers\FilmController;
 use App\Http\Controllers\GenreController;
+use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -39,5 +41,7 @@ Route::get('/data-tables', function() {
 Route::resource('cast', CastController::class);
 Route::resource('genre', GenreController::class);
 Route::resource('film', FilmController::class);
+Route::resource('role', RoleController::class);
+Route::resource('critic', CriticController::class);
 
 Auth::routes();

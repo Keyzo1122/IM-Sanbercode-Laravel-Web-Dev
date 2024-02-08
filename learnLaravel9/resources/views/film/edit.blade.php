@@ -12,7 +12,10 @@
             @method('PUT')
             <div class="form-group">
                 <label for="title">Title</label>
-                <input type="text" class="form-control" value="{{ $film->title }}" name="title" id="title" placeholder="Input Title">
+                <input type="text" class="form-control" value="{{ $film->title }}" name="title" id="title"
+                    placeholder="Input Title" @error('title')
+                    is-invalid
+                    @enderror>
                 @error('title')
                     <div class="alert alert-danger">
                         {{ $message }}
@@ -21,7 +24,10 @@
             </div>
             <div class="form-group">
                 <label for="summary">Summary</label>
-                <input type="text" class="form-control" value="{{ $film->summary }}" name="summary" id="summary" placeholder="Input Summary">
+                <input type="text" class="form-control" value="{{ $film->summary }}" name="summary" id="summary"
+                    placeholder="Input Summary" @error('summary')
+                    is-invalid
+                    @enderror>
                 @error('summary')
                     <div class="alert alert-danger">
                         {{ $message }}
@@ -30,7 +36,10 @@
             </div>
             <div class="form-group">
                 <label for="year">Year</label>
-                <input type="number" class="form-control" value="{{ $film->year }}" name="year" id="year" placeholder="Input Year">
+                <input type="number" class="form-control" value="{{ $film->year }}" name="year" id="year"
+                    placeholder="Input Year" @error('year')
+                    is-invalid
+                    @enderror>
                 @error('year')
                     <div class="alert alert-danger">
                         {{ $message }}
@@ -39,7 +48,10 @@
             </div>
             <div class="form-group">
                 <label for="poster">Poster</label>
-                <input type="file" class="form-control" name="poster" id="poster" placeholder="Input Poster">
+                <input type="file" class="form-control" name="poster" id="poster" placeholder="Input Poster"
+                @error('poster')
+                    is-invalid
+                    @enderror>
                 @error('poster')
                     <div class="alert alert-danger">
                         {{ $message }}
@@ -47,8 +59,11 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="genre">Genre</label>
-                <select name="genre_id" class="form-control" id="">
+                <label>Genre</label>
+                <select name="genre_id" class="form-control" id=""
+                    @error('genre_id')
+                    is-invalid
+                    @enderror>
                     <option value="">--Silahkan Pilih Genre--</option>
                     @forelse ($genre as $item)
                         @if ($item->id === $film->genre_id)
@@ -63,7 +78,7 @@
             </div>
             <button type="submit" class="btn btn-warning btn-sm">Update</button>
             <a href="/film" style="text-decoration: none;">
-                <button type="button" class="btn btn-primary btn-sm">Back</button>
+                <button type="button" class="btn btn-info btn-sm">Back</button>
             </a>
         </form>
     </div>

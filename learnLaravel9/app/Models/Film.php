@@ -16,12 +16,12 @@ class Film extends Model
 
     }
 
-    // public function critic()
-    // {
-    //     return $this->hasMany(Critic::class);
-    // }
-    // public function role()
-    // {
-    //     return $this->hasMany(Role::class);
-    // }
+    public function critic()
+    {
+        return $this->hasMany(Critic::class);
+    }
+    public function role()
+    {
+        return $this->hasMany(Role::class);
+    }
 }
